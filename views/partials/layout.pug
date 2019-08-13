@@ -1,0 +1,35 @@
+html
+    head
+        link(rel='icon' type='image/png' sizes='96x96' href='/images/favicon-96x96.png')
+        title GOMMB
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin="anonymous")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet")
+        link(rel='stylesheet' type='text/css' href='/css/styles.css')
+    
+    body
+        nav.navbar.navbar-expand-sm.navbar-dark.bg-dark.sticky-top.navbar-inverse
+            .navbar-header
+                a.navbar-brand(href='/') GOMMB
+            button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation")
+                span.navbar-toggler-icon
+            .collapse.navbar-collapse#navbar.inline-form
+                .navbar-nav.ml-auto
+                    a.nav-item.nav-link(class=active == 'home' ? 'active' : '' href='/') Home
+                    a.nav-item.nav-link(class=active == 'about' ? 'active' : '' href='/about') About 
+                    a.nav-item.nav-link(class=active == 'contact' ? 'active' : '' href='/contact') Contact
+        
+                    if logged_in
+                        a.nav-item.nav-link(href='/users/logout') Logout
+                        a.nav-item.nav-link(class=active == 'users' ? 'active' : '' href='/users') Chat
+                    else
+                        a.nav-item.nav-link(class=active == 'login' ? 'active' : '' href='/users/login') Login
+                        a.nav-item.nav-link(class=active == 'register' ? 'active' : '' href='/users/register') Register
+        .container-fluid.wrapper
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+            script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", crossorigin="anonymous")
+            script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous")
+            script(src='/js/nav.js')
+            block content
+
+        footer &copy; 2019 gommb.xyz All Rights Reserved

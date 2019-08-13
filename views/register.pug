@@ -1,0 +1,26 @@
+extends partials/layout.pug
+
+block content
+    h1.title Register
+    if errors
+        each error in errors
+            .alert.alert-danger.alert-dismissible.fade.show= error.msg
+                button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+                    span(aria-hidden="true") &times;
+
+    form(action='/users/register' method='POST')
+        .form-group
+            label(for='username') Username
+            input.form-control#username(type='text' name='username' placeholder='Username' required)
+        .form-group
+            label(for='email') Email
+            input.form-control#email(type='email' name='email' aria-describedby='emailhelp' placeholder='Email' required)
+            small#emailhelp.form-text.text-muted example@example.com
+        .form-group
+            label(for='password') Password
+            input.form-control#password(type='password' name='password' aria-describedby='passhelp' placeholder='Password' required)
+            small#passhelp.form-text.text-muted Must be at least 8 characters.
+        .form-group
+            label(for='cpassword') Confirm Password
+            input.form-control#cpassword(type='password' name='cpassword' placeholder='Confirm Password' required)
+        button.btn.btn-primary(type='submit') Register

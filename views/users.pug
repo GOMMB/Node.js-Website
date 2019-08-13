@@ -1,0 +1,15 @@
+extends partials/layout.pug
+
+block content
+    h1.title Chat
+    .inbox_msg
+        .mesgs
+            .msg_history
+            .type_msg
+                .input_msg_write
+                    input.write_msg(type='text' placeholder='Type a message' autocomplete="off")
+                    button.msg_send_btn(type='button' onclick='send()')
+                        i.fa.fa-paper-plane-o(aria-hidden='true')
+
+    script(src="/socket.io/socket.io.js")
+    script(src='/js/chat.js')

@@ -1,0 +1,20 @@
+extends partials/layout.pug
+
+block content
+    h1.title Login
+    if flash.error
+        each msg in flash.error
+            .alert.alert-danger.alert-dismissible.fade.show= msg
+                button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+                    span(aria-hidden="true") &times;
+
+    form(action='/users/login' method='POST')
+        .form-group
+            label(for='email') Email address or username
+            input.form-control#email(type='text' name='email' placeholder='Email or username' required)
+        .form-group
+            label(for='password') Password
+            input.form-control#password(type='password' name='password' placeholder='Password' aria-describedby='forgot' required)
+            small#forgot.form-text.text-muted 
+                a.link(href='/users/forgot') Forgot password?
+        button.btn.btn-primary(type='submit') Log in
