@@ -2,7 +2,7 @@ const routes = require('express').Router()
 const mailer = require('../config/mailer')
 const fs = require('fs')
 
-const config = JSON.parse(fs.readFileSync('../config/config.json'))
+const config = JSON.parse(fs.readFileSync(__basedir + '/config/config.json'))
 
 routes.get('/', (req, res) => {
 	return res.render('index', {
