@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const mailer = require(__basedir + '/config/mailer')
 const fs = require('fs')
 
-const config = JSON.parse(fs.readFileSync('../config/config.json'))
+const config = JSON.parse(fs.readFileSync(__basedir + '/config/config.json'))
 
 function generateString(len) {
 	let text = ''
