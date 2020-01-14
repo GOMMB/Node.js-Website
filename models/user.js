@@ -1,6 +1,6 @@
-const con = require('../config/database')
+const con = require(__basedir + '/config/database')
 const bcrypt = require('bcrypt')
-const mailer = require('../config/mailer')
+const mailer = require(__basedir + '/config/mailer')
 const fs = require('fs')
 
 const config = JSON.parse(fs.readFileSync('../config/config.json'))
