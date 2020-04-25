@@ -25,6 +25,10 @@ let incoming = (uname, msg, time) => {
     `
 }
 
+let addUser = (uname) => {
+	$('.online').append(`<li id='${escape(uname)}'>${uname}</li>`)
+}
+
 let formatTime = (now) => {
 	let hour24 = now.getHours()
 	let hour = hour24 > 12 ? hour24 - 12 : hour24 == 0 ? 12 : hour24
@@ -54,4 +58,18 @@ $('.write_msg').keypress((e) => {
 socket.on('message', (data) => {
 	$('.msg_history').append(incoming(data.uname, data.msg, data.time))
 	$('.msg_history').scrollTop($('.msg_history').prop('scrollHeight'))
+})
+
+let peopleOnline = new Set()
+
+socket.on('initialList', (data) => {
+	data.forEach(addUser)
+})
+
+socket.on('personConnected', (data) => {
+	addUser(data)
+})
+
+socket.on('personDisconnected', (data) => {
+	$(`#${escape(data)}`).remove()
 })
