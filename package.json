@@ -7,7 +7,7 @@
 		"bcrypt": "^3.0.6",
 		"compression": "^1.7.4",
 		"express": "^4.17.1",
-		"express-flash-2": "github:jack2gs/express-flash-2#master",
+		"express-flash-2": "github:GOMMB/express-flash-2#master",
 		"express-session": "^1.16.2",
 		"express-socket.io-session": "^1.3.5",
 		"express-validator": "^5.3.1",
