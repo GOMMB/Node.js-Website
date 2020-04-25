@@ -10,6 +10,8 @@ block content
                     input.write_msg(type='text' placeholder='Type a message' autocomplete="off")
                     button.msg_send_btn(type='button' onclick='send()')
                         i.fa.fa-paper-plane-o(aria-hidden='true')
+    h3.title Online:
+    ul.online
 
     script(src="/socket.io/socket.io.js")
     script(src='/js/chat.js')
