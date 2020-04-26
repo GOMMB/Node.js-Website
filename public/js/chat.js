@@ -60,8 +60,6 @@ socket.on('message', (data) => {
 	$('.msg_history').scrollTop($('.msg_history').prop('scrollHeight'))
 })
 
-let peopleOnline = new Set()
-
 socket.on('initialList', (data) => {
 	data.forEach(addUser)
 })
