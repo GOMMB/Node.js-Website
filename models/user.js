@@ -122,7 +122,7 @@ module.exports.sendForgotPassword = (email, callback) => {
 
 			bcrypt.hash(key, 10, (err, hash) => {
 				con.run(
-					'REPLACE INTO `forgotPassword` VALUES (?, ?, NOW() + INTERVAL 10 MINUTE)',
+					"REPLACE INTO `forgotPassword` VALUES (?, ?, datetime('now', '+10 minutes'))",
 					[
 						result.id,
 						hash
@@ -161,7 +161,7 @@ module.exports.resetPassword = (password, id, key, callback) => {
 
 			if (!result) return callback(false)
 
-			if (Date.now() > result.expire.getTime()) {
+			if (Date.now() > Date.parse(result.expire)) {
 				removeForgotPassword(id)
 				return callback(false)
 			}
