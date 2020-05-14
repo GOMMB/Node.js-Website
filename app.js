@@ -68,10 +68,10 @@ let sessionInstance = session({
 	key: 'session_key',
 	secret: '5hi849a49]400f983409]__+_*(ohi',
 	store: fileStore,
-	resave: false,
+	resave: true,
 	saveUninitialized: false,
 	cookie: {
-		maxAge: 7 * 86400 * 1000,
+		maxAge: 10 * 60 * 1000, // 10 minutes
 		secure: true
 	}
 })
