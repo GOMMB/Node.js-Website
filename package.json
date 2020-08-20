@@ -4,7 +4,7 @@
 	"description": "test",
 	"main": "app.js",
 	"dependencies": {
-		"bcrypt": "^3.0.6",
+		"bcrypt": "^5.0.0",
 		"compression": "^1.7.4",
 		"express": "^4.17.1",
 		"express-flash-2": "github:GOMMB/express-flash-2#master",
